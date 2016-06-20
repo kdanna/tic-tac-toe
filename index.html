@@ -3,13 +3,12 @@
 <head>
 	<title>Tic Tac Toe</title>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-	<script type="text/javascript" src="scripts.js"></script>
 	
 
 </head>
 <body onload="startGame()";>
  <h1 class="title">tic.tac.toe</h1>
- <h3 class="title">everyone's favorite last-ditch-resort game</h3>
+ <h3 class="title">everyone's favorite last-resort game</h3>
 	<div class="gameboard">
 		<div class="cell" id="box1" onclick="nextMove(this)"></div>
 		<div class="cell" id="box2" onclick="nextMove(this)"></div>
@@ -24,10 +23,11 @@
  <br>
 
 
-<button class="playAgain" onclick="eraseText()"> Play Again </button>
+<button id="playAgain" onclick="clearBoard()"> Clear </button>
 
 
 
+	<script type="text/javascript" src="scripts.js"></script>
 </body>
 
 </html>

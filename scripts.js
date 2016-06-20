@@ -1,29 +1,34 @@
 	
-	//figure out ways to put the event listen in the DOM
-	//figure out how to avoid changing a cell once it has been used
+	//need to figure out ways to put the event listen in the DOM
+	//need to figure out how to color coat "x" and "o"
+	//need to go back a refactor the isWinner function. Maybe declear winner options in array and loop through it.
+
 
 	var turn = "x";
-	var theBoxes = document.getElementsByClassName("cell"); //returns each cell
-	var clear = document.getElementsByClassName("playAgain");
-
-	//TESTED. the start function happens on window load and sets 'x' to begin.
+	var theBoxes = document.getElementsByClassName("cell"); //returns each div class="cell"
+	var clearButton = document.getElementById("playAgain"); // returns the html button
+	
+	//TESTED. The start function happens on window load and sets 'x' to start.
 	function startGame() {
 		theBoxes.innerText = turn;
 		winner = null;
 	}
 
-	//TESTED. the nextPlayer functions checks to see what the value of turn is and assigns the opposite.
+	//TESTED. The nextPlayer function checks to see if there has been a winner, what the value of turn is, and assigns the opposite.
 	function nextPlayer(){
-		/*if (isWinner() === true){
-			alert("we have a winner");*/
+		if (isWinner()){
+			alert("CONGRATS, We have a winner!"); 
+			clearButton.innerText = "Play Again"; 
+			return;
+		}
 		if (turn === "x"){
 			turn = "o";
 		}else {
 			turn = "x";
+		}
 	}
-};
 
-	// TESTED. the nextMove function is triggered by a click on the cell (from the html tag)
+	// TESTED. The nextMove function is triggered by a click on the cell (from the html tag)
 	function nextMove(cell) {	
 		if(cell.innerText === ""){
 			cell.innerText = turn;
@@ -33,36 +38,36 @@
 		}
 	}
 
-	
-/*Below are all my ideas for 1) determining winner and 2) making play again button fuction.  After two days of working on this non-stop I threw in the towel.
 
+//TESTED. Consider refactoring and using a loop. Declare winningMoves array combos first, then loop.
 
 	//NOT WORKING 
-	function isWinner(move){
+	function isWinner() {
+
 		var winner = false;
-		if  (threeInaRow(1,2,3, move)||
-			threeInaRow(4,5,6, move) ||
-			threeInaRow(7,8,9, move) ||
-			threeInaRow(1,5,9, move) ||
-			threeInaRow(3,5,7, move) ||
-			threeInaRow(1,4,7, move) ||
-			threeInaRow(2,5,8, move) ||
-			threeInaRow(3,6,9, move)) {
+		if  (threeInaRow(0,1,2,turn)||
+			threeInaRow(3,4,5, turn) ||
+			threeInaRow(6,7,8, turn) ||
+			threeInaRow(0,3,6, turn) ||
+			threeInaRow(1,4,7, turn) ||
+			threeInaRow(2,5,8, turn) ||
+			threeInaRow(0,4,8, turn) ||
+			threeInaRow(2,4,6, turn)) {
 			winner = true;
 			}
 		return winner;
 		};
 
- 	// should return the "x" or "o" and does when you test it solo
-	function getBoxStatus(number){
-		return theBoxes.innerText;
+ 	// TESTED. Returns the "x" or "o" in a particular cell.
+	function getBoxStatus(boxIndex){
+		return theBoxes[boxIndex].innerText;
 	}
 
-	// This function works on its own when you pass is all "x" or "o", but it is returning false when used with other fucntions
+	// TESTED. Function works.
 
-	function threeInaRow(x,y,z, move){
+	function threeInaRow(x,y,z){
 		var results = false;
-		if (getBoxStatus(x) === move && getBoxStatus(y) === move && getBoxStatus(z) === move){
+		if (getBoxStatus(x) === turn && getBoxStatus(y) === turn && getBoxStatus(z) === turn){
 		 results = true;
 		}
 		return results;
@@ -70,10 +75,16 @@
 
 
 
-General Idea for removing text from game, ie "resetting the board"
-function eraseText(){
-	document.getElementsByClassName("cell").empty();
+//TESTED. Works. Resets back to "Clear" once the "Play Again" button has been pressed.
+function clearBoard(){
+	for(var i = 0; i < theBoxes.length; i++)  {
+		theBoxes[i].innerHTML ="";
+	}
+	if (clearButton.innerText === "Play Again"){
+		clearButton.innerText = "Clear";
+	} 
+
 }
-*/
+
 
 
