@@ -1,15 +1,24 @@
 
-
 body {
-	background-color: #f2f2f2;
-  color: #900;
-  font-family: arial;
+  background-color: #f2f2f2;
+  color: #594F4F;
+  font-family: Futura;
+  text-align: center;
+  margin: auto;
 }
 
-.title{
-	text-align: center	
+#title{
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
 }
 
+#tagline{
+  font-size: 25px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 5;
+}
 
 .gameboard{
   width: 469px;
@@ -25,19 +34,16 @@ body {
   line-height: 150px;
   vertical-align: middle;
   border: 3px solid black;
-  font-size: 50px;
+  font-size: 75px;
   display: inline-block;
-  font-family: sans-serif;
   margin: 0%;
-  font-family: arial black;
-  color: rgba(0,0,0,0);
-  /*#00cc99;*/
+  color: white;
 }
 
 
-
 #playAgain {
-  color: #900;
+  color: black;
+  background-color: #9DE0AD;
   font-weight: bold;
   font-size: 150%;
   text-align: center;

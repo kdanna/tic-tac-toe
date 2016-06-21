@@ -1,14 +1,14 @@
+
 	
 	//need to figure out ways to put the event listen in the DOM
 	//need to figure out how to color coat "x" and "o"
 	//need to go back a refactor the isWinner function. Maybe declear winner options in array and loop through it.
 
+	var boxColor = "DarkCyan";
 	var turn = "x";
 	var theBoxes = document.getElementsByClassName("cell"); //returns each div class="cell"
 	var clearButton = document.getElementById("playAgain"); // returns the html button
 	
-	//document.querySelector("#box1").addEventListener("click", nextMove);
-
 	//TESTED. The start function happens on window load and sets 'x' to start.
 	function startGame() {
 		theBoxes.innerText = turn;
@@ -16,32 +16,32 @@
 	}
 
 	//TESTED. The nextPlayer function checks to see if there has been a winner, what the value of turn is, and assigns the opposite.
-	//The "congrats" alert appears after the next player has gone.  need to fix.
-	function nextPlayer(cell){	
-		if (turn === "x"){
-			cell.style.backgroundImage = "url('css/x.png')";
-			turn = "o";
-		
-		}else {
-			cell.style.backgroundImage = "url('css/o.png')";
-			turn = "x";
+	function nextPlayer(){
+		if (isWinner()){
+			alert("CONGRATS, We have a winner!"); 
+			clearButton.innerText = "Play Again"; 
+			return;
 		}
-	if (isWinner()){
-	alert("CONGRATS, We have a winner!"); 
-	clearButton.innerText = "Play Again"; 
-	return;
-}
-}
+		if (turn === "x"){
+			turn = "o";
+			boxColor = "DarkOrange";
+		}else {
+			turn = "x";
+			boxColor = "DarkCyan";
+		}
+	}
 
 	// TESTED. The nextMove function is triggered by a click on the cell (from the html tag)
-	function nextMove(cell) {
+	function nextMove(cell) {	
 		if(cell.innerText === ""){
 			cell.innerText = turn;
-		 	nextPlayer(cell);
+			cell.style.backgroundColor = boxColor;
+		 	nextPlayer();
 		}else {
 			alert("That box is already taken. Try again.");
 		}
-}
+	}
+
 
 //TESTED. Consider refactoring and using a loop. Declare winningMoves array combos first, then loop.
 
@@ -83,10 +83,10 @@
 function clearBoard(){
 	for(var i = 0; i < theBoxes.length; i++)  {
 		theBoxes[i].innerHTML ="";
+		theBoxes[i].style.backgroundColor = "white";
 	}
 	if (clearButton.innerText === "Play Again"){
 		clearButton.innerText = "Clear";
 	} 
 
 }
-
