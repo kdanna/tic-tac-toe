@@ -1,19 +1,22 @@
 
 body {
+ /* background-image: url("http://image.naldzgraphics.net/2012/01/6-with-squares.jpg")
+  opacity: 0.5;*/
   background-color: #f2f2f2;
-  color: #594F4F;
   font-family: Futura;
   text-align: center;
   margin: auto;
 }
 
 #title{
+  color: #594F4F;
   font-size: 60px;
   padding: 0;
   margin: 0;
 }
 
 #tagline{
+  color: #594F4F;
   font-size: 25px;
   padding: 0;
   margin-top: 0;
