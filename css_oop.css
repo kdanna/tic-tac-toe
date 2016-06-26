@@ -1,22 +1,20 @@
 
 body {
- /* background-image: url("http://image.naldzgraphics.net/2012/01/6-with-squares.jpg")
-  opacity: 0.5;*/
-  background-color: #f2f2f2;
+  background-image: url("woodBackground.jpg");
   font-family: Futura;
   text-align: center;
   margin: auto;
 }
 
 #title{
-  color: #594F4F;
+  color: #30162B;
   font-size: 60px;
   padding: 0;
   margin: 0;
 }
 
 #tagline{
-  color: #594F4F;
+  color: #30162B;
   font-size: 25px;
   padding: 0;
   margin-top: 0;
@@ -45,8 +43,8 @@ body {
 
 
 #playAgain {
-  color: black;
-  background-color: #9DE0AD;
+  color: white;
+  background-color: #424254;
   font-weight: bold;
   font-size: 150%;
   text-align: center;
@@ -54,3 +52,28 @@ body {
   padding: 5px;
   display: block;
 }
+
+@media (max-width: 500px){
+
+  #title{
+    font-size: 40px;
+  }
+
+  .gameboard{
+    width: 250px;
+    height: 250px;  
+  }
+
+  .cell{
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 40px;
+  }
+
+  #playAgain {
+    font-size: 75%;
+  }
+
+}
+
